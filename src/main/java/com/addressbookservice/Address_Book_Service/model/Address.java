@@ -1,6 +1,6 @@
 package com.addressbookservice.Address_Book_Service.model;
 
-public class AddressBook {
+public class Address {
     private Integer id;
     private String firstName;
     private String lastName;
@@ -10,12 +10,12 @@ public class AddressBook {
     private String state;
     private Integer zip;
 
-    public AddressBook() {
+    public Address() {
         super();
     }
 
-    public AddressBook(Integer id, String firstName, String lastName, String email, long phoneNumber, String city,
-                       String state, Integer zip) {
+    public Address(Integer id, String firstName, String lastName, String email, long phoneNumber, String city,
+                   String state, Integer zip) {
         super();
         this.id = id;
         this.firstName = firstName;
