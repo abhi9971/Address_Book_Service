@@ -1,10 +1,19 @@
 package com.addressbookservice.Address_Book_Service.model;
 
+import com.addressbookservice.Address_Book_Service.dto.AddressBookDTO;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
+    @Id
+    @GeneratedValue
     private Integer id;
+
     private String firstName;
     private String lastName;
-    private String email;
     private long phoneNumber;
     private String city;
     private String state;
@@ -14,13 +23,21 @@ public class Address {
         super();
     }
 
-    public Address(Integer id, String firstName, String lastName, String email, long phoneNumber, String city,
+    public Address(AddressBookDTO addressBookDTO) {
+        this.firstName = addressBookDTO.getFirstName();
+        this.lastName = addressBookDTO.getLastName();
+        this.phoneNumber = addressBookDTO.getPhoneNumber();
+        this.city = addressBookDTO.getCity();
+        this.state = addressBookDTO.getState();
+        this.zip = addressBookDTO.getZip();
+    }
+
+    public Address(Integer id, String firstName, String lastName, long phoneNumber, String city,
                    String state, Integer zip) {
         super();
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.state = state;
@@ -51,13 +68,6 @@ public class Address {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public long getPhoneNumber() {
         return phoneNumber;
