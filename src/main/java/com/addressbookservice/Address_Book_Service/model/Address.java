@@ -1,17 +1,21 @@
 package com.addressbookservice.Address_Book_Service.model;
 
 import com.addressbookservice.Address_Book_Service.dto.AddressBookDTO;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Data
 public class Address {
     @Id
     @GeneratedValue
     private Integer id;
 
+
+    private String email;
     private String firstName;
     private String lastName;
     private long phoneNumber;
@@ -20,7 +24,17 @@ public class Address {
     private Integer zip;
 
     public Address() {
-        super();
+    }
+
+    public Address(Integer id, AddressBookDTO addressBookDTO) {
+        this.id = id;
+        this.firstName = addressBookDTO.getFirstName();
+        this.lastName = addressBookDTO.getLastName();
+        this.email = addressBookDTO.getEmail();
+        this.phoneNumber = addressBookDTO.getPhoneNumber();
+        this.city = addressBookDTO.getCity();
+        this.state = addressBookDTO.getCity();
+        this.zip = addressBookDTO.getZip();
     }
 
     public Address(AddressBookDTO addressBookDTO) {
@@ -30,9 +44,10 @@ public class Address {
         this.city = addressBookDTO.getCity();
         this.state = addressBookDTO.getState();
         this.zip = addressBookDTO.getZip();
+        this.email = addressBookDTO.getEmail();
     }
 
-    public Address(Integer id, String firstName, String lastName, long phoneNumber, String city,
+    public Address(Integer id, String firstName, String lastName, String email, long phoneNumber, String city,
                    String state, Integer zip) {
         super();
         this.id = id;
@@ -42,6 +57,7 @@ public class Address {
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -99,5 +115,13 @@ public class Address {
 
     public void setZip(Integer zip) {
         this.zip = zip;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
