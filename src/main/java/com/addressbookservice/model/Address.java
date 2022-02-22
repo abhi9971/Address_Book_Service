@@ -1,6 +1,6 @@
-package com.addressbookservice.Address_Book_Service.model;
+package com.addressbookservice.model;
 
-import com.addressbookservice.Address_Book_Service.dto.AddressBookDTO;
+import com.addressbookservice.dto.AddressBookDTO;
 import lombok.Data;
 
 import javax.persistence.Entity;

@@ -1,29 +1,44 @@
-package com.addressbookservice.Address_Book_Service.dto;
+package com.addressbookservice.dto;
+
+
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 public class AddressBookDTO {
+    @NotEmpty(message = "First name cant be empty")
+    @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Employee firstName is Invalid")
     private String firstName;
+
+    @NotEmpty(message = "Last name cant be empty")
+    @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Employee firstName is Invalid")
     private String lastName;
+
+    @Email
     private String email;
+
     private long phoneNumber;
+
+    @NotEmpty(message = "city cant be empty")
     private String city;
+
     private String state;
     private Integer zip;
 
-    public AddressBookDTO() {
-        super();
-    }
 
     public AddressBookDTO(String firstName, String lastName, String email, long phoneNumber, String city, String state,
                           Integer zip) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.email = email;
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -41,13 +56,14 @@ public class AddressBookDTO {
         this.lastName = lastName;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public long getPhoneNumber() {
         return phoneNumber;

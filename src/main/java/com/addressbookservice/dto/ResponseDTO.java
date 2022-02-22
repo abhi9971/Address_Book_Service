@@ -1,4 +1,4 @@
-package com.addressbookservice.Address_Book_Service.dto;
+package com.addressbookservice.dto;
 
 import lombok.Data;
 

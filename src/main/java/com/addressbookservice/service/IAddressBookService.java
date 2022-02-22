@@ -1,7 +1,7 @@
-package com.addressbookservice.Address_Book_Service.service;
+package com.addressbookservice.service;
 
-import com.addressbookservice.Address_Book_Service.dto.AddressBookDTO;
-import com.addressbookservice.Address_Book_Service.model.Address;
+import com.addressbookservice.dto.AddressBookDTO;
+import com.addressbookservice.model.Address;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,9 +21,6 @@ public interface IAddressBookService {
 
     public List<Address> getRecord();
 
-    public List<Address> getRecordByFirstName(String firstName);
-
-    public List<Address> getRecordByName();
 
     public Address updateRecordById(Integer id, AddressBookDTO addressBookDTO);
 

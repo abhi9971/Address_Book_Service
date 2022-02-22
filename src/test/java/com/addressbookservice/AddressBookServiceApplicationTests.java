@@ -1,4 +1,4 @@
-package com.addressbookservice.Address_Book_Service;
+package com.addressbookservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
