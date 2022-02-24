@@ -20,31 +20,6 @@ public class AddressBookController {
     @Autowired
     AddressService service;
 
-    @GetMapping("/getMessage")
-    public ResponseEntity<String> getMessage(@RequestParam String name) {
-        String message = service.getMessage(name);
-        return new ResponseEntity(message, HttpStatus.OK);
-    }
-
-    @PostMapping("/postMessage")
-    public ResponseEntity<String> postMessage(@RequestBody Address address) {
-        String message = service.postMessage(address);
-        return new ResponseEntity(message, HttpStatus.OK);
-    }
-
-    @GetMapping("/putMessage/{name}")
-    public ResponseEntity<String> putMessage(@PathVariable String name) {
-        String message = service.putMessage(name);
-        return new ResponseEntity(message, HttpStatus.OK);
-    }
-
-    //Ability to get welcome message
-    @GetMapping("/welcome")
-    public ResponseEntity<String> getWelcome() {
-        String message = service.getWelcome();
-        return new ResponseEntity(message, HttpStatus.OK);
-    }
-
     //Ability to store a address book record to repository
     @PostMapping("/create")
     public ResponseEntity<String> saveDataToRepo(@Valid @RequestBody AddressBookDTO addressBookDTO) {
