@@ -14,22 +14,6 @@ public class AddressService {
     @Autowired
     AddressRepository repository;
 
-    public String getMessage(String name) {
-        return "Welcome " + name;
-    }
-
-    public String postMessage(Address address) {
-        return "Hello " + address.getFirstName() + " " + address.getLastName();
-    }
-
-    public String putMessage(String name) {
-        return "How are you, " + name;
-    }
-
-    public String getWelcome() {
-        return "Welcome to Address Book !";
-    }
-
     public Address saveDataToRepo(AddressBookDTO addressBookDTO) {
         Address newAddress = new Address(addressBookDTO);
         repository.save(newAddress);
